@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <style name="fontForHeaderBlack">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_22cdp</item>
+    </style>
+
+    <style name="fab_square" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_12cdp</item>
+    </style>
+
+
+    <style name="fontForHeaderError">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_bold</item>
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textSize">@dimen/_22cdp</item>
+    </style>
+
+    <style name="fontForHeaderPrimary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/_22cdp</item>
+    </style>
+
+    <style name="fontForNormalPrimary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/_20cdp</item>
+    </style>
+
+    <style name="fontForMediumPrimary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/_18cdp</item>
+    </style>
+
+    <style name="fontForSmallPrimary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/_16cdp</item>
+    </style>
+
+    <style name="fontForNormalBlack">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_16cdp</item>
+    </style>
+
+    <style name="fontForBigBlack">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_18cdp</item>
+    </style>
+
+    <style name="fontForMediumBlack">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_12cdp</item>
+    </style>
+
+
+    <style name="fontForNormal">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">@dimen/_16cdp</item>
+    </style>
+
+    <style name="fontForNormalSecondary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">@dimen/_16cdp</item>
+    </style>
+
+
+    <style name="fontForBig">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">@dimen/_18cdp</item>
+    </style>
+
+    <style name="fontForMedium">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">@dimen/_12cdp</item>
+    </style>
+
+    <style name="fontForMenu">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">@dimen/_8cdp</item>
+    </style>
+</resources>

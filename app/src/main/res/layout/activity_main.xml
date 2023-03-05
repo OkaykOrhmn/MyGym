@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mygym.activitys.MainActivity">
+
+
+    <fragment
+        android:id="@+id/nav_host_fragment_content_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation"
+        android:elevation="@dimen/_12cdp"
+        />
+
+    <LinearLayout
+        android:id="@+id/ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/nav_layout"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+
+
+            >
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_alarm_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="auto"
+                app:shapeAppearanceOverlay="@style/fab_square"
+                android:backgroundTint="@color/colorPrimary"
+                android:visibility="gone"
+
+
+
+                />
+
+            <TextView
+                android:id="@+id/add_person_fab_text"
+                style="@style/fontForNormalSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:elevation="@dimen/_12cdp"
+                android:visibility="gone"
+
+
+
+                android:text="معمولی" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            >
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_person_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="auto"
+                app:shapeAppearanceOverlay="@style/fab_square"
+                android:backgroundTint="@color/colorPrimary"
+                android:visibility="gone"
+
+
+
+
+                />
+
+            <TextView
+                android:id="@+id/add_alarm_fab_text"
+                style="@style/fontForNormalSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+
+
+                android:elevation="@dimen/_12cdp"
+                android:visibility="gone"
+
+                android:text="سوپر" />
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100cdp"
+        android:id="@+id/nav_layout"
+        android:elevation="@dimen/_8cdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fabCradleMargin="10dp"
+            android:backgroundTint="?attr/colorOnSecondary"
+            app:fabCradleRoundedCornerRadius="10dp"
+            android:layoutDirection="rtl"
+            app:fabCradleVerticalOffset="10dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="#00000000"
+                android:outlineAmbientShadowColor="@android:color/transparent"
+                android:outlineSpotShadowColor="@android:color/transparent"
+                app:menu="@menu/menu_bottom_navigation"
+                app:itemTextColor="@color/selected_nav_bottom"
+                app:itemIconTint="@color/selected_nav_bottom"
+                app:itemTextAppearance="@style/fontForMenu"
+                tools:targetApi="p" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_anchor="@id/bottomAppBar"
+            android:backgroundTint="@color/colorPrimary"
+
+
+            />
+
+
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

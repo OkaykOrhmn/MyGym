@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.mygym.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+    <action
+        android:id="@+id/action_to_workOutsFragment"
+        app:destination="@id/workOutsFragment" />
+    <fragment
+        android:id="@+id/Settings"
+        android:name="com.example.mygym.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/workOutsFragment"
+        android:name="com.example.mygym.WorkOutsFragment"
+        android:label="fragment_work_outs"
+        tools:layout="@layout/fragment_work_outs" />
+</navigation>

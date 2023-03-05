@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        google()
+        maven { url "https://maven.neshan.org/artifactory/public-maven" }
+        mavenCentral()
+    }
+}
+rootProject.name = "MyGym"
+include ':app'

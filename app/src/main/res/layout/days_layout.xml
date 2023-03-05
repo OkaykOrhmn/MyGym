@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/_18cdp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/day_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120cdp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_12cdp"
+                android:backgroundTint="#00000000"
+                android:text="روز D"
+                style="@style/fontForHeaderPrimary"
+                app:cornerRadius="@dimen/_12cdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeWidth="@dimen/_2cdp"
+                tools:strokeColor="@color/colorPrimary"
+                android:outlineAmbientShadowColor="@android:color/transparent"
+                android:outlineSpotShadowColor="@android:color/transparent"
+
+                android:elevation="@dimen/_18cdp"
+                />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
