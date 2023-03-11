@@ -220,7 +220,7 @@
                         android:gravity="start"
                         android:hint="تعداد حرکت"
                         android:imeOptions="actionDone"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:scrollHorizontally="true"
                         android:singleLine="true"
@@ -252,10 +252,11 @@
                         android:gravity="start"
                         android:hint="تعداد ست"
                         android:imeOptions="actionDone"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:scrollHorizontally="true"
                         android:singleLine="true"
+
 
                         />
 
@@ -311,7 +312,7 @@
                     android:gravity="start"
                     android:hint="تعداد هر ست"
                     android:imeOptions="actionDone"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:maxLines="1"
                     android:scrollHorizontally="true"
                     android:singleLine="true"

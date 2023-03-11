@@ -53,9 +53,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.addPersonFab.setOnClickListener(
-                view -> Toast.makeText(MainActivity.this, "Person Added", Toast.LENGTH_SHORT
-                ).show());
+        binding.addPersonFab.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CreatSuperActivity.class);
+            startActivity(intent);
+
+            binding.addAlarmFab.hide();
+            binding.addPersonFab.hide();
+            binding.addAlarmFabText.setVisibility(View.GONE);
+            binding.addPersonFabText.setVisibility(View.GONE);
+
+
+            isAllFabsVisible = false;
+        });
 
 
         binding.addAlarmFab.setOnClickListener(view -> {

@@ -3,6 +3,7 @@ package com.example.mygym.database.models;
 public class WorkOuts {
 
     private int id;
+    private String superId;
     private String day;
     private String type;
     private String typeId;
@@ -32,6 +33,25 @@ public class WorkOuts {
         this.setCount = setCount;
         this.moveCount = moveCount;
         this.details = details;
+    }
+
+    public WorkOuts(String superId, String day, String titles, String setType, String setCount, String moveCount, String details) {
+        this.superId = superId;
+        this.day = day;
+        this.titles = titles;
+
+        this.setType = setType;
+        this.setCount = setCount;
+        this.moveCount = moveCount;
+        this.details = details;
+    }
+
+    public String getSuperId() {
+        return superId;
+    }
+
+    public void setSuperId(String superId) {
+        this.superId = superId;
     }
 
     public String getType() {

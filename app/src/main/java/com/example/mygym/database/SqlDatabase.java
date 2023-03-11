@@ -15,8 +15,9 @@ import java.util.ArrayList;
 
 public class SqlDatabase extends SQLiteOpenHelper {
 
-    String TABLE_NAME = "WorkOuts";
-    String TABLE_NAME_DAYS = "Days";
+    public static String TABLE_NAME = "WorkOuts";
+    public static String TABLE_NAME_DAYS = "Days";
+    public static String TABLE_NAME_SUPER = "Super";
 
     public SqlDatabase(@Nullable Context context) {
         super(context, "mySql.db", null, 1);
@@ -30,6 +31,16 @@ public class SqlDatabase extends SQLiteOpenHelper {
                 " day TEXT  , " +
                 " type TEXT  , " +
                 " typeId TEXT  , " +
+                " title TEXT  , " +
+                " setType TEXT  , " +
+                " setCount TEXT  , " +
+                " moveCount TEXT  , " +
+                " details TXT)" );
+
+        sqLiteDatabase.execSQL(" CREATE TABLE " + TABLE_NAME_SUPER +
+                "(ida INTEGER PRIMARY KEY , " +
+                " idSuper TEXT  , " +
+                " day TEXT  , " +
                 " title TEXT  , " +
                 " setType TEXT  , " +
                 " setCount TEXT  , " +
@@ -69,6 +80,37 @@ public class SqlDatabase extends SQLiteOpenHelper {
                 String moveCount = c.getString(7);
                 String details = c.getString(8);
                 WorkOuts product = new WorkOuts(id,day,type,typeId,title,setType,setCount,moveCount,details);
+                WorkOutsList.add(product);
+
+                // Do something Here with values
+            } while(c.moveToNext());
+        }
+        c.close();
+
+        return WorkOutsList;
+
+
+    }
+
+    public ArrayList<WorkOuts> getDataSuper(){
+
+        ArrayList<WorkOuts> WorkOutsList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME_SUPER, null);
+        if (c.moveToFirst()){
+            do {
+                // Passing values
+
+
+                int id = c.getInt(0);
+                String superId = c.getString(1);
+                String day = c.getString(2);
+                String title = c.getString(3);
+                String setType = c.getString(4);
+                String setCount = c.getString(5);
+                String moveCount = c.getString(6);
+                String details = c.getString(7);
+                WorkOuts product = new WorkOuts(superId,day,title,setType,setCount,moveCount,details);
                 WorkOutsList.add(product);
 
                 // Do something Here with values
@@ -128,6 +170,13 @@ public class SqlDatabase extends SQLiteOpenHelper {
 
     }
 
+    public void deleteSuperById(String id)
+    {
+        SQLiteDatabase database = this.getReadableDatabase();
+        database.delete(TABLE_NAME_SUPER, "idSuper=?", new String[]{id+""});
+
+    }
+
     //DELETE
     public void deleteByDay(String day)
     {
@@ -155,12 +204,39 @@ public class SqlDatabase extends SQLiteOpenHelper {
 
     }
 
+    public void InsertWorkSuper( String ida, String day, String title,String setType,String setCount,String moveCount, String descripsion) {
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("idSuper", ida);
+        contentValues.put("day", day);
+        contentValues.put("title", title);
+        contentValues.put("setType", setType);
+        contentValues.put("setCount", setCount);
+        contentValues.put("moveCount", moveCount);
+        contentValues.put("details", descripsion);
+        database.insert(TABLE_NAME_SUPER, null, contentValues);
+
+    }
+
     //INSERT
     public void InsertDay( String day, String title) {
 
         SQLiteDatabase database = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
 //        contentValues.put("ida", ida);
+        contentValues.put("day", day);
+        contentValues.put("title", title);
+        database.insert(TABLE_NAME_DAYS, null, contentValues);
+
+    }
+
+    //INSERT
+    public void InsertDayWhId( int id, String day, String title) {
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("ida", id);
         contentValues.put("day", day);
         contentValues.put("title", title);
         database.insert(TABLE_NAME_DAYS, null, contentValues);

@@ -39,13 +39,7 @@
                 android:gravity="center" />
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                >
-
-            </RelativeLayout>
 
             <TextView
                 android:id="@+id/text_title"
@@ -54,7 +48,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginVertical="@dimen/_24cdp"
-                tools:text="جلو بازو" />
+                tools:text="جلو بازو "
+                android:layout_marginLeft="@dimen/_64cdp"
+                />
 
 
         </LinearLayout>
@@ -127,6 +123,52 @@
 
                     />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/super_lay"
+                android:visibility="gone"
+                >
+                <TextView
+                    android:id="@+id/desc_s"
+                    style="@style/fontForNormalSecondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_24cdp"
+                    android:layout_marginVertical="@dimen/_12cdp"
+                    tools:text="توضیحات" />
+
+                <LinearLayout
+                    android:id="@+id/sets_layout_s"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_24cdp"
+                    android:layout_marginBottom="@dimen/_12cdp"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/c_set_s"
+                        style="@style/fontForNormal"
+                        android:layout_width="@dimen/_46cdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8cdp"
+                        tools:text="4" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/c_move_s"
+                        style="@style/fontForNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8cdp"
+                        tools:text="12"
+
+                        />
+
+                </LinearLayout>
             </LinearLayout>
 
 

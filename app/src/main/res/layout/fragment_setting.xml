@@ -3,8 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E91E63"
     tools:context=".fragments.SettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_24cdp"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backup"
+            android:text="پشتیبانی گیری از برنامه ورزشی"
+            style="@style/fontForNormal"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            android:layout_marginVertical="@dimen/_4cdp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/restore"
+            android:text="بازیابی  برنامه ورزش"
+            style="@style/fontForNormal"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            android:layout_marginVertical="@dimen/_4cdp"
+            />
+    </LinearLayout>
 
 
 

@@ -45,7 +45,6 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
         binding = ActivityCreatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//
 
         sqlDatabase = new SqlDatabase(this);
         daysArrayList = sqlDatabase.getDays();
@@ -53,28 +52,14 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
 
         daysName = new ArrayList<>();
 
-//         if(daysArrayList.isEmpty()){
-//             binding.spinnerDay.setVisibility(View.INVISIBLE);
-//             binding.addDay.setVisibility(View.VISIBLE);
-//         }else{
-//             binding.spinnerDay.setVisibility(View.VISIBLE);
-//             binding.addDay.setVisibility(View.INVISIBLE);
-//             spinner();
-//         }
-
-//         binding.addDay.setOnClickListener(view -> {
-//             sqlDatabase.InsertDay(alphba[0],"روز "+alphba[0]);
         binding.spinnerDay.setVisibility(View.VISIBLE);
-//             binding.addDay.setVisibility(View.INVISIBLE);
         spinner();
-
-//         });
 
 
         binding.addExt.setOnClickListener(view -> {
 
 
-            if (binding.editTitle.getText().length() != 0 && details.size() != 0) {
+            if (binding.editTitle.getText().length() != 0 ) {
                 if (binding.radioC.isChecked()) {
                     if (binding.countSetEdit.getText().length() != 0 && binding.countMoveEdit.getText().length() != 0) {
                         sqlDatabase.InsertWork(day, "REG", "0", binding.editTitle.getText().toString(),
@@ -134,15 +119,6 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
             return false;
         });
 
-//        binding.editSets.setOnEditorActionListener((textView, i, keyEvent) -> {
-//            if (textView.getText().length() != 0) {
-//                sets.add(textView.getText().toString());
-//                textView.setText("");
-//                recS();
-//            }
-//
-//            return false;
-//        });
 
         binding.addToDesc.setOnClickListener(view -> {
 
@@ -266,6 +242,5 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
         adapter.notifyDataSetChanged();
     }
 
-//
 
 }

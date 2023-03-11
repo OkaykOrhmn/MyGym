@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -43,13 +44,15 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder > {
     public void onBindViewHolder(@NonNull DaysAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Days item = daysArrayList.get(position);
         Random rnd = new Random();
+        Log.d(TAG, "getDay: "+item.getDay());
+        Log.d(TAG, "getTitle: "+item.getTitle());
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         holder.binding.dayButton.getBackground().setTint(color);
-        holder.binding.dayButton.setText(item.getDay());
+        holder.binding.dayButton.setText(item.getTitle());
 
         holder.binding.dayButton.setOnClickListener(view -> {
             Bundle bundle = new Bundle();
-            bundle.putString("Day", item.getTitle());
+            bundle.putString("Day", item.getDay());
             Navigation.findNavController(view).navigate(R.id.action_to_workOutsFragment, bundle);
 
         });
