@@ -50,8 +50,7 @@ public class SqlDatabase extends SQLiteOpenHelper {
         //CREAT TABLE
         sqLiteDatabase.execSQL(" CREATE TABLE " + TABLE_NAME_DAYS +
                 "(ida INTEGER PRIMARY KEY , " +
-                " day TEXT  , " +
-                " title TXT)" );
+                " day TXT)" );
     }
 
     @Override
@@ -134,8 +133,7 @@ public class SqlDatabase extends SQLiteOpenHelper {
                 // Passing values
                 int id = c.getInt(0);
                 String day = c.getString(1);
-                String title = c.getString(2);
-                Days product = new Days(id,day,title);
+                Days product = new Days(id,day);
                 WorkOutsList.add(product);
 
                 // Do something Here with values
@@ -220,25 +218,23 @@ public class SqlDatabase extends SQLiteOpenHelper {
     }
 
     //INSERT
-    public void InsertDay( String day, String title) {
+    public void InsertDay( String day) {
 
         SQLiteDatabase database = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
 //        contentValues.put("ida", ida);
         contentValues.put("day", day);
-        contentValues.put("title", title);
         database.insert(TABLE_NAME_DAYS, null, contentValues);
 
     }
 
     //INSERT
-    public void InsertDayWhId( int id, String day, String title) {
+    public void InsertDayWhId( int id, String day) {
 
         SQLiteDatabase database = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("ida", id);
         contentValues.put("day", day);
-        contentValues.put("title", title);
         database.insert(TABLE_NAME_DAYS, null, contentValues);
 
     }

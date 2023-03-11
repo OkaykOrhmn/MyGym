@@ -9,6 +9,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -136,6 +137,14 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
             return false;
         });
 
+        if(position == worksourArrayList.size()-1){
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(46, 8, 46, 120);
+            holder.binding.cartt.setLayoutParams(params);
+        }
 
     }
 

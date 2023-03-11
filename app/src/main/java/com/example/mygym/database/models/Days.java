@@ -2,15 +2,13 @@ package com.example.mygym.database.models;
 
 public class Days {
     private int id ;
-    private String title;
     private String day;
 
     public Days() {
     }
 
-    public Days(int id, String title, String day) {
+    public Days(int id, String day) {
         this.id = id;
-        this.title = title;
         this.day = day;
     }
 
@@ -22,13 +20,7 @@ public class Days {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getDay() {
         return day;

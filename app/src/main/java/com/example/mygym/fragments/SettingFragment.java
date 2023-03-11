@@ -128,9 +128,6 @@ public class SettingFragment extends Fragment {
 
                     file2Writer.append("" + days.get(i).getDay());
                     file2Writer.append(",");
-
-                    file2Writer.append("" + days.get(i).getTitle());
-                    file2Writer.append(",");
                     file2Writer.append("\n");
 
                 }
@@ -212,9 +209,8 @@ public class SettingFragment extends Fragment {
             while ((nextLine2=csv2Reader.readNext())!=null){
                 int id = Integer.parseInt(nextLine2[0]);
                 String day = nextLine2[1];
-                String title = nextLine2[2];
 
-                sqlDatabase.InsertDayWhId(id,day,title);
+                sqlDatabase.InsertDayWhId(id,day);
             }
 
             while ((nextLine3=csv3Reader.readNext())!=null){

@@ -223,7 +223,7 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
         if (addPos == i) {
 
             if (position < 7) {
-                sqlDatabase.InsertDay(alphba[position], "روز " + alphba[position]);
+                sqlDatabase.InsertDay(alphba[position]);
                 adapterSpinnder.remove("اضافه کردن...");
 
                 adapterSpinnder.add("روز " + alphba[position]);
@@ -244,10 +244,10 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
 
             }
             adapterSpinnder.notifyDataSetChanged();
-            day = daysArrayList.get(i).getTitle();
+            day = daysArrayList.get(i).getDay();
 
         } else {
-            day = daysArrayList.get(i).getTitle();
+            day = daysArrayList.get(i).getDay();
             Toast.makeText(this, day, Toast.LENGTH_SHORT).show();
         }
 
