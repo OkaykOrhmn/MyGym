@@ -23,9 +23,22 @@
 
             android:layoutDirection="rtl"
             android:paddingVertical="@dimen/_12cdp"
+            android:visibility="invisible"
+
 
 
             />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_12cdp"
+            android:visibility="invisible"
+            android:text="اضافه کردن روز"
+            style="@style/fontForMenu"
+            />
+
 
     </androidx.cardview.widget.CardView>
 
@@ -261,8 +274,20 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_32cdp"
             android:visibility="gone"
+            tools:visibility="visible"
 
             app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_sets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_32cdp"
+                android:layout_marginTop="@dimen/_12cdp"
+                android:layout_marginBottom="@dimen/_8cdp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/my_set_layout" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/my_set_layout"
@@ -273,11 +298,14 @@
 
                 android:gravity="start"
                 app:boxStrokeColor="@color/colorPrimary"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rec_sets"
 
                 >
 
+
+
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/each_set_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="start"

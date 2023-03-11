@@ -11,11 +11,14 @@
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation"
+        android:layout_height="0dp"
         android:elevation="@dimen/_12cdp"
-        />
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_layout"
+        android:layout_marginBottom="@dimen/_54cdp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
     <LinearLayout
         android:id="@+id/ext"
@@ -42,9 +45,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabSize="auto"
-                app:shapeAppearanceOverlay="@style/fab_square"
                 android:backgroundTint="@color/colorPrimary"
                 android:visibility="gone"
+                tools:visibility="visible"
+                app:elevation="0dp"
+
 
 
 
@@ -52,12 +57,14 @@
 
             <TextView
                 android:id="@+id/add_person_fab_text"
-                style="@style/fontForNormalSecondary"
+                style="@style/fontForSmallSecondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:elevation="@dimen/_12cdp"
                 android:visibility="gone"
+                tools:visibility="visible"
+
+
 
 
 
@@ -76,9 +83,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabSize="auto"
-                app:shapeAppearanceOverlay="@style/fab_square"
                 android:backgroundTint="@color/colorPrimary"
                 android:visibility="gone"
+                tools:visibility="visible"
+                app:elevation="0dp"
 
 
 
@@ -87,16 +95,17 @@
 
             <TextView
                 android:id="@+id/add_alarm_fab_text"
-                style="@style/fontForNormalSecondary"
+                style="@style/fontForSmallSecondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
+
                 android:layout_centerInParent="true"
+                android:text="سوپر"
 
 
-                android:elevation="@dimen/_12cdp"
                 android:visibility="gone"
-
-                android:text="سوپر" />
+                tools:visibility="visible" />
         </RelativeLayout>
 
 
@@ -105,9 +114,10 @@
     </LinearLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:id="@+id/nav_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100cdp"
-        android:id="@+id/nav_layout"
         android:elevation="@dimen/_8cdp"
         app:layout_constraintBottom_toBottomOf="parent"
 
@@ -119,10 +129,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:fabCradleMargin="10dp"
             android:backgroundTint="?attr/colorOnSecondary"
-            app:fabCradleRoundedCornerRadius="10dp"
             android:layoutDirection="rtl"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp"
             app:fabCradleVerticalOffset="10dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -133,10 +143,10 @@
                 android:background="#00000000"
                 android:outlineAmbientShadowColor="@android:color/transparent"
                 android:outlineSpotShadowColor="@android:color/transparent"
-                app:menu="@menu/menu_bottom_navigation"
-                app:itemTextColor="@color/selected_nav_bottom"
                 app:itemIconTint="@color/selected_nav_bottom"
                 app:itemTextAppearance="@style/fontForMenu"
+                app:itemTextColor="@color/selected_nav_bottom"
+                app:menu="@menu/menu_bottom_navigation"
                 tools:targetApi="p" />
 
         </com.google.android.material.bottomappbar.BottomAppBar>
@@ -145,17 +155,14 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorOnSecondary"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_anchor="@id/bottomAppBar"
-            android:backgroundTint="@color/colorPrimary"
+            app:tint="?attr/colorOnPrimary"
 
 
             />
-
-
-
-
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -156,11 +156,11 @@ public class SqlDatabase extends SQLiteOpenHelper {
     }
 
     //INSERT
-    public void InsertDay(Integer ida, String day, String title) {
+    public void InsertDay( String day, String title) {
 
         SQLiteDatabase database = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("ida", ida);
+//        contentValues.put("ida", ida);
         contentValues.put("day", day);
         contentValues.put("title", title);
         database.insert(TABLE_NAME_DAYS, null, contentValues);

@@ -54,6 +54,7 @@ dependencies {
     implementation 'com.github.maks1990:CDP:1.0.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    implementation 'com.github.florent37:expansionpanel:1.2.4'
 
 
 }

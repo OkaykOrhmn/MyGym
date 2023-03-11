@@ -1,4 +1,4 @@
-package com.example.mygym;
+package com.example.mygym.fragments;
 
 import android.os.Bundle;
 
@@ -11,9 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mygym.database.adapter.WorksAdapter;
 import com.example.mygym.database.SqlDatabase;
 import com.example.mygym.database.models.WorkOuts;
-import com.example.mygym.databinding.FragmentHomeBinding;
 import com.example.mygym.databinding.FragmentWorkOutsBinding;
 
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class WorkOutsFragment extends Fragment {
     }
 
     private void rec( ArrayList<WorkOuts> workOuts) {
-        LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, true);
+        LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         binding.worksRec.setLayoutManager(verticalLayoutManager);
 
         adapter = new WorksAdapter(workOuts, getContext());

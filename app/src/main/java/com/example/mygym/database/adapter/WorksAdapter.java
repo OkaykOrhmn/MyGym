@@ -1,23 +1,22 @@
-package com.example.mygym;
+package com.example.mygym.database.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
+import android.graphics.drawable.GradientDrawable;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mygym.database.models.Days;
+import com.example.mygym.R;
+import com.example.mygym.database.SqlDatabase;
 import com.example.mygym.database.models.WorkOuts;
-import com.example.mygym.databinding.DaysLayoutBinding;
 import com.example.mygym.databinding.WorksRowBinding;
+import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -28,6 +27,7 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder >
     private Context context;
     private ArrayList<WorkOuts> worksourArrayList;
     private int deletePosition = -1;
+    private final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
 
     public WorksAdapter(ArrayList<WorkOuts> worksourArrayList, Context context) {
         this.worksourArrayList = worksourArrayList;
@@ -46,31 +46,36 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder >
     @Override
     public void onBindViewHolder(@NonNull WorksAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         WorkOuts item = worksourArrayList.get(position);
+        Random rnd = new Random();
+        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        GradientDrawable drawable = (GradientDrawable) holder.binding.cartt.getBackground();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.5f, context.getResources().getDisplayMetrics());
+        drawable.setStroke(px,color);
 
-        holder.binding.a.setOnClickListener(view -> {
-            // If the CardView is already expanded, set its visibility
-            // to gone and change the expand less icon to expand more.
-            if (holder.binding.extendedLay.getVisibility() == View.VISIBLE) {
-                // The transition of the hiddenView is carried out by the TransitionManager class.
-                // Here we use an object of the AutoTransition Class to create a default transition
-                TransitionManager.beginDelayedTransition(holder.binding.cartt, new AutoTransition());
-                holder.binding.extendedLay.setVisibility(View.GONE);
-                holder.binding.imageTvDrawer.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_arrow_drop_down_24));
-            }
-
-            // If the CardView is not expanded, set its visibility to
-            // visible and change the expand more icon to expand less.
-            else {
-                TransitionManager.beginDelayedTransition(holder.binding.cartt, new AutoTransition());
-                holder.binding.extendedLay.setVisibility(View.VISIBLE);
-                holder.binding.imageTvDrawer.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_arrow_drop_up_24));
-            }
-        });
+        expansionsCollection.add(holder.binding.expansionLayout);
 
         holder.binding.textTitle.setText(item.getTitles());
+        holder.binding.textTitle.setTextColor(color);
+
         holder.binding.cSet.setText(item.getSetCount());
+        holder.binding.cSet.getBackground().setTint(color);
+
         holder.binding.cMove.setText(item.getMoveCount());
+        holder.binding.cMove.getBackground().setTint(color);
+
         holder.binding.desc.setText(item.getDetails());
+        holder.binding.desc.setTextColor(color);
+
+        holder.binding.headerIndicator.getDrawable().setTint(color);
+
+
+        holder.binding.cSet.setOnLongClickListener(view -> {
+            SqlDatabase sqlDatabase = new SqlDatabase(context);
+            sqlDatabase.deleteById(worksourArrayList.get(position).getId());
+            worksourArrayList.remove(position);
+            notifyDataSetChanged();
+            return false;
+        });
 
 
 

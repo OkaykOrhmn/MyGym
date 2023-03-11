@@ -30,6 +30,13 @@
         <item name="android:textSize">@dimen/_22cdp</item>
     </style>
 
+    <style name="fontForHeaderWhite">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_22cdp</item>
+    </style>
+
     <style name="fontForNormalPrimary">
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
@@ -87,6 +94,12 @@
         <item name="android:textSize">@dimen/_16cdp</item>
     </style>
 
+    <style name="fontForSmallSecondary">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/iransansmobile_fanum_medium</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">@dimen/_12cdp</item>
+    </style>
 
     <style name="fontForBig">
         <item name="android:textStyle">normal</item>

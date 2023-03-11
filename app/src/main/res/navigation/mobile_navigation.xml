@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/workOutsFragment"
-        android:name="com.example.mygym.WorkOutsFragment"
+        android:name="com.example.mygym.fragments.WorkOutsFragment"
         android:label="fragment_work_outs"
         tools:layout="@layout/fragment_work_outs" />
 </navigation>
