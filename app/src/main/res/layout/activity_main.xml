@@ -29,7 +29,46 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
+
         >
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            >
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_person_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="auto"
+                android:backgroundTint="@color/colorPrimary"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:elevation="0dp"
+
+
+
+
+                />
+
+            <TextView
+                android:id="@+id/add_alarm_fab_text"
+                style="@style/fontForSmallSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_centerInParent="true"
+                android:text="سوپر"
+
+
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -71,42 +110,6 @@
                 android:text="معمولی" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_12cdp"
-            >
-
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_person_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fabSize="auto"
-                android:backgroundTint="@color/colorPrimary"
-                android:visibility="gone"
-                tools:visibility="visible"
-                app:elevation="0dp"
-
-
-
-
-                />
-
-            <TextView
-                android:id="@+id/add_alarm_fab_text"
-                style="@style/fontForSmallSecondary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-
-                android:layout_centerInParent="true"
-                android:text="سوپر"
-
-
-                android:visibility="gone"
-                tools:visibility="visible" />
-        </RelativeLayout>
 
 
 

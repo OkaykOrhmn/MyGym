@@ -50,7 +50,7 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
         WorkOuts item = worksourArrayList.get(position);
         SqlDatabase sqlDatabase = new SqlDatabase(context);
         Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        int color = Color.argb(255, rnd.nextInt(200), rnd.nextInt(200), rnd.nextInt(200));
         GradientDrawable drawable = (GradientDrawable) holder.binding.cartt.getBackground();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.5f, context.getResources().getDisplayMetrics());
         drawable.setStroke(px, color);

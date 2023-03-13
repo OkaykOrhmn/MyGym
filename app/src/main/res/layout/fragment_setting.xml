@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SettingFragment">
 
     <LinearLayout
@@ -31,6 +32,65 @@
             android:layout_marginHorizontal="@dimen/_12cdp"
             android:layout_marginVertical="@dimen/_4cdp"
             />
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_4cdp"
+            android:orientation="vertical"
+            >
+
+            <com.github.florent37.expansionpanel.ExpansionHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:expansion_headerIndicator="@id/headerIndicator"
+                app:expansion_layout="@id/expansionLayout"
+
+                app:expansion_toggleOnClick="true">
+
+
+                <!-- HEADER -->
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ساخت برنامه ورزشی به صورت تکست"
+                    style="@style/fontForNormal"
+                    android:layout_marginHorizontal="@dimen/_12cdp"
+                    android:clickable="false"
+                    />            <!-- HEADER INDICATOR -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    android:elevation="@dimen/_12cdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_24cdp"
+                    app:tint="?attr/colorOnPrimary" />
+
+            </com.github.florent37.expansionpanel.ExpansionHeader>
+            <com.github.florent37.expansionpanel.ExpansionLayout
+                android:id="@+id/expansionLayout"
+                android:layout_width="match_parent"
+                android:background="@drawable/back_work_out"
+                android:layout_marginHorizontal="@dimen/_12cdp"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rec_day"
+                    />
+
+
+            </com.github.florent37.expansionpanel.ExpansionLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 

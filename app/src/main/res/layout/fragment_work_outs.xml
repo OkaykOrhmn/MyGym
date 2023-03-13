@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragments.WorkOutsFragment">
 
-
-        <RelativeLayout
-            android:id="@+id/nav_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="@dimen/_12cdp"
-            android:layoutDirection="ltr"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/works_rec"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true"
-            >
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_18cdp"
+                    android:layout_marginTop="@dimen/_24cdp"
+                    >
 
 
-        </androidx.recyclerview.widget.RecyclerView>
+                        <TextView
+                            android:id="@+id/hed"
+                            style="@style/fontForHeaderPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            tools:text="تمرین های روز A" />
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/works_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    >
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
 
 
 
@@ -30,4 +50,4 @@
 
 
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

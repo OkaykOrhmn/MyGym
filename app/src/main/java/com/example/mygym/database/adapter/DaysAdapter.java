@@ -45,7 +45,7 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder > {
         Days item = daysArrayList.get(position);
         Random rnd = new Random();
         Log.d(TAG, "getDay: "+item.getDay());
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        int color = Color.argb(200, rnd.nextInt(150), rnd.nextInt(150), rnd.nextInt(150));
         holder.binding.dayButton.getBackground().setTint(color);
         holder.binding.dayButton.setText("روز "+item.getDay());
 

@@ -39,6 +39,10 @@ public class WorkOutsFragment extends Fragment {
         assert getArguments() != null;
         String day = getArguments().getString("Day");
 
+        binding.hed.setText("تمرین های روز "+ day);
+
+
+
         SqlDatabase sqlDatabase = new SqlDatabase(getContext());
         ArrayList<WorkOuts> workOutsArrayList = new ArrayList<>();
         ArrayList<WorkOuts> workOuts = sqlDatabase.getData();
@@ -47,11 +51,8 @@ public class WorkOutsFragment extends Fragment {
                 workOutsArrayList.add(workOuts.get(i));
             }
         }
-        Log.d("KIAAA", "onCreateView: "+workOuts.toString());
 
         rec(workOutsArrayList);
-
-
 
         return binding.getRoot();
     }

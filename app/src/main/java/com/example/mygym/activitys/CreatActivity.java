@@ -155,7 +155,7 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
 
     private void spinner() {
         for (int i = 0; i < daysArrayList.size(); i++) {
-            daysName.add(daysArrayList.get(i).getDay());
+            daysName.add("روز "+daysArrayList.get(i).getDay());
         }
 
         if (daysName.size() < 7) {
