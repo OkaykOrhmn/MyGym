@@ -50,9 +50,10 @@ public class Days2Adapter extends RecyclerView.Adapter<Days2Adapter.ViewHolder >
         Days item = daysArrayList.get(position);
         Random rnd = new Random();
         Log.d(TAG, "getDay: "+item.getDay());
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        int color = Color.argb(200, rnd.nextInt(150), rnd.nextInt(150), rnd.nextInt(150));
+
         holder.binding.mainButton.setText("روز "+item.getDay());
-        holder.binding.mainButton.getBackground().setTint(color);
+//        holder.binding.mainButton.getBackground().setTint(color);
         holder.binding.mainButton.setOnClickListener(view -> onItemClickAdapter.onItemClick(position));
 
 
