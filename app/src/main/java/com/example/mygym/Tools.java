@@ -15,17 +15,17 @@ public class Tools {
     }
 
     public static String removeArray(String a) {
-        a = a.replace("[", "");
-        a = a.replace("]", "");
-        a = a.replace(",", " ");
+        a = a.replace("[", "(");
+        a = a.replace("]", ")");
+        a = a.replace(",", ".");
 
         return a;
     }
 
     public static String toArray(String a) {
-        String res = "( ";
-        res+=a;
-        res+=" )";
+        String res  = a;
+        res = res.replace(".", ",");
+
 
 
         return res;

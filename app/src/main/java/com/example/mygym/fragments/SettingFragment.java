@@ -37,9 +37,12 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
 import com.opencsv.CSVReader;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 
@@ -220,7 +223,7 @@ public class SettingFragment extends Fragment implements OnItemClickAdapter {
 
         }
         try {
-            FileWriter file1Writer = new FileWriter(textFilePath);
+            FileWriter file1Writer = (FileWriter) new OutputStreamWriter(new FileOutputStream(textFilename), StandardCharsets.UTF_8);
             file1Writer.append(result);
             file1Writer.flush();
             file1Writer.close();

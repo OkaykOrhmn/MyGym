@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.mygym.Tools;
 import com.example.mygym.database.adapter.DetailsAdapter;
 import com.example.mygym.R;
 import com.example.mygym.database.SqlDatabase;
@@ -64,7 +65,7 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
                     if (binding.countSetEdit.getText().length() != 0 && binding.countMoveEdit.getText().length() != 0) {
                         sqlDatabase.InsertWork(day, "REG", "0", binding.editTitle.getText().toString(),
                                 type, binding.countSetEdit.getText().toString(),
-                                binding.countMoveEdit.getText().toString(), details.toString());
+                                binding.countMoveEdit.getText().toString(), Tools.removeArray(details.toString()));
                         finish();
                     }
                 } else {
@@ -72,7 +73,7 @@ public class CreatActivity extends AppCompatActivity implements AdapterView.OnIt
                         Log.d("TAG_KIA", "onCreate: " + sets.toString());
                         sqlDatabase.InsertWork(day, "REG", "0", binding.editTitle.getText().toString(),
                                 type, String.valueOf(sets.size()),
-                                sets.toString(), details.toString());
+                                Tools.removeArray(sets.toString()), Tools.removeArray(details.toString()));
                         finish();
                     }
                 }

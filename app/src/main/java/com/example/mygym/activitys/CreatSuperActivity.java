@@ -62,7 +62,7 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
                     if (binding.countSetEdit.getText().length() != 0 && binding.countMoveEdit.getText().length() != 0) {
                         sqlDatabase.InsertWorkSuper(superId, day, binding.editTitle.getText().toString(),
                                 type, binding.countSetEdit.getText().toString(),
-                                binding.countMoveEdit.getText().toString(), details.toString());
+                                binding.countMoveEdit.getText().toString(), Tools.removeArray(details.toString()));
                         if (move == 2) {
                             sqlDatabase.InsertWork(day, "SUPER", superId, "", "", "", "", "");
                             finish();
@@ -73,7 +73,7 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
                         Log.d("TAG_KIA", "onCreate: " + sets.toString());
                         sqlDatabase.InsertWorkSuper(superId, day, binding.editTitle.getText().toString(),
                                 type, String.valueOf(sets.size()),
-                                sets.toString(), details.toString());
+                                Tools.removeArray(sets.toString()), Tools.removeArray(details.toString()));
                         if (move == 2) {
                             sqlDatabase.InsertWork(day, "SUPER", superId, "", "", "", "", "");
                             finish();
