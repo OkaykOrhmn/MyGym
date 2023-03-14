@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mygym.R;
+import com.example.mygym.Tools;
 import com.example.mygym.database.SqlDatabase;
 import com.example.mygym.database.models.WorkOuts;
 import com.example.mygym.databinding.WorksRowBinding;
@@ -54,7 +55,6 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
         GradientDrawable drawable = (GradientDrawable) holder.binding.cartt.getBackground();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.5f, context.getResources().getDisplayMetrics());
         drawable.setStroke(px, color);
-        expansionsCollection.add(holder.binding.expansionLayout);
         holder.binding.textTitle.setTextColor(color);
         holder.binding.cSet.getBackground().setTint(color);
         holder.binding.cSetS.getBackground().setTint(color);
@@ -64,21 +64,30 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
         holder.binding.desc.setTextColor(color);
         holder.binding.descS.setTextColor(color);
 
+        expansionsCollection.add(holder.binding.expansionLayout);
+
+
         if (item.getType().equals("REG")) {
             holder.binding.superLay.setVisibility(View.GONE);
 
             holder.binding.textTitle.setText(item.getTitles());
 
-            holder.binding.cSet.setText(item.getSetCount());
+            holder.binding.cSet.setText(Tools.toArray(item.getSetCount()));
 
-            holder.binding.cMove.setText(item.getMoveCount());
+            holder.binding.cMove.setText(Tools.toArray(item.getMoveCount()));
 
-            if (item.getDetails().equals("[]") || item.getDetails().equals("")) {
+            if (item.getDetails().equals("()") || item.getDetails().equals("")) {
                 holder.binding.desc.setVisibility(View.GONE);
 
             } else {
                 holder.binding.desc.setVisibility(View.VISIBLE);
-                holder.binding.desc.setText(item.getDetails());
+                holder.binding.desc.setText(Tools.toArray(item.getDetails()));
+            }
+
+            if (item.getMoveCount().equals("0") || item.getSetCount().equals("0")) {
+                holder.binding.headerIndicator.setVisibility(View.GONE);
+                holder.binding.expansionLayout.setVisibility(View.GONE);
+
             }
 
         } else {
@@ -95,14 +104,14 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
             WorkOuts moveOne = supers.get(0);
             WorkOuts moveTwo = supers.get(1);
 
-            holder.binding.textTitle.setText(moveOne.getTitles() + " + " + moveTwo.getTitles());
+            holder.binding.textTitle.setText(moveOne.getTitles() + " + \n" + moveTwo.getTitles());
             Log.e(TAG, "onBindViewHolder: " + moveOne.getTitles());
 
-            holder.binding.cSet.setText(moveOne.getSetCount());
-            holder.binding.cSetS.setText(moveTwo.getSetCount());
+            holder.binding.cSet.setText(Tools.toArray(moveOne.getSetCount()));
+            holder.binding.cSetS.setText(Tools.toArray(moveTwo.getSetCount()));
 
-            holder.binding.cMove.setText(moveOne.getMoveCount());
-            holder.binding.cMoveS.setText(moveTwo.getMoveCount());
+            holder.binding.cMove.setText(Tools.toArray(moveOne.getMoveCount()));
+            holder.binding.cMoveS.setText(Tools.toArray(moveTwo.getMoveCount()));
 
             if (moveOne.getDetails().equals("[]")) {
                 holder.binding.desc.setVisibility(View.GONE);

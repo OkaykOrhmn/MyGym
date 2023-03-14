@@ -30,6 +30,17 @@
 
             />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_12cdp"
+            style="@style/fontForNormalSecondary"
+            tools:text="روز A"
+            android:gravity="center"
+            android:id="@+id/day_tv"
+            android:visibility="gone"
+            />
+
 
     </androidx.cardview.widget.CardView>
 

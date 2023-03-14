@@ -66,6 +66,10 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
                         if (move == 2) {
                             sqlDatabase.InsertWork(day, "SUPER", superId, "", "", "", "", "");
                             finish();
+                        }else{
+                            binding.spinnerDay.setVisibility(View.INVISIBLE);
+                            binding.dayTv.setVisibility(View.VISIBLE);
+                            binding.dayTv.setText("روز " + day);
                         }
                     }
                 } else {
@@ -77,6 +81,11 @@ public class CreatSuperActivity extends AppCompatActivity implements AdapterView
                         if (move == 2) {
                             sqlDatabase.InsertWork(day, "SUPER", superId, "", "", "", "", "");
                             finish();
+                        }else{
+                            binding.spinnerDay.setVisibility(View.INVISIBLE);
+                            binding.dayTv.setVisibility(View.VISIBLE);
+                            binding.dayTv.setText("روز " + day);
+
                         }
                     }
                 }
