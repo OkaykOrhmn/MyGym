@@ -2,6 +2,7 @@ package com.example.mygym.database.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mygym.R;
@@ -136,13 +138,25 @@ public class WorksAdapter extends RecyclerView.Adapter<WorksAdapter.ViewHolder> 
         holder.binding.headerIndicator.getDrawable().setTint(color);
 
 
-        holder.binding.cSet.setOnLongClickListener(view -> {
-            if (item.getType().equals("SUPER")) {
-                sqlDatabase.deleteSuperById(item.getSuperId());
-            }
-            sqlDatabase.deleteById(worksourArrayList.get(position).getId());
-            worksourArrayList.remove(position);
-            notifyDataSetChanged();
+        holder.binding.mainLay.setOnLongClickListener(view -> {
+            AlertDialog.Builder alert = new AlertDialog.Builder(context);
+            alert.setTitle("پاک کردن حرکت");
+            alert.setMessage("از پاک کردن حرکت مطمعنی؟");
+            alert.setPositiveButton("آره", (dialog, which) -> {
+                if (item.getType().equals("SUPER")) {
+                    sqlDatabase.deleteSuperById(item.getSuperId());
+                }
+                sqlDatabase.deleteById(worksourArrayList.get(position).getId());
+                worksourArrayList.remove(position);
+                notifyDataSetChanged();
+            });
+            alert.setNegativeButton("نه", (dialog, which) -> {
+                // close dialog
+                dialog.cancel();
+            });
+            alert.show();
+
+
             return false;
         });
 

@@ -6,13 +6,16 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mygym.R;
+import com.example.mygym.database.SqlDatabase;
 import com.example.mygym.database.models.Days;
 import com.example.mygym.databinding.DaysLayoutBinding;
 
@@ -54,6 +57,29 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder > {
             bundle.putString("Day", item.getDay());
             Navigation.findNavController(view).navigate(R.id.action_to_workOutsFragment, bundle);
 
+        });
+
+        holder.binding.dayButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                alert.setTitle("پاک کردن حرکت");
+                alert.setMessage("از پاک کردن روز مطمعنی؟\nهر حرکت مربوط به این روز پاک میشه!!!");
+                alert.setPositiveButton("آره", (dialog, which) -> {
+                    SqlDatabase sqlDatabase = new SqlDatabase(context);
+                    sqlDatabase.deleteByDay(item.getDay());
+                    daysArrayList.remove(position);
+                    notifyDataSetChanged();
+                });
+                alert.setNegativeButton("نه", (dialog, which) -> {
+                    // close dialog
+                    dialog.cancel();
+                });
+                alert.show();
+
+
+                return false;
+            }
         });
 
 

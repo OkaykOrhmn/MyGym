@@ -15,7 +15,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/main_gym_icon"
         android:label="باشگاه من"
-        android:roundIcon="@drawable/ic_launcher_background"
+        android:roundIcon="@drawable/main_gym_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGym"
         android:windowSoftInputMode="adjustNothing"
